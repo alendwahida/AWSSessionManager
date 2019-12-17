@@ -1,0 +1,38 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetConnectionStatus",
+                "ec2:DescribeInstances",
+                "ssm:DescribeSessions",
+                "ec2:DescribeSecurityGroups",
+                "ssm:DescribeInstanceProperties"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "ssm:GetDocument",
+            "Resource": "arn:aws:ssm:ap-southeast-1:1234567890:document/SSM-SessionManagerRunShell"
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": "ssm:TerminateSession",
+            "Resource": "arn:aws:ssm:*:*:session/${aws:user001}-*"
+        },
+        {
+            "Sid": "VisualEditor3",
+            "Effect": "Allow",
+            "Action": "ssm:StartSession",
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/i-contoh1234567890",
+                "arn:aws:ec2:*:*:instance/i-contohabcdefghij"
+            ]
+        }
+    ]
+}
